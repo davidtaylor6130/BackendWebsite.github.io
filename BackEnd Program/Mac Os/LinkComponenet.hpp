@@ -17,8 +17,8 @@ public:
     LinkComponent();
     
     void GUIUpdate(int PageCount, int ComponentCount) override;
-    void JsonLoad() override;
-    void JsonSaving() override;
+    void JsonLoad(nlohmann::json* json) override;
+    void JsonSaving(nlohmann::json* json) override;
     
     std::string LinkForWebsite = "www.google.com";
 };

@@ -36,8 +36,9 @@ public:
         return projectData[selectedIndex];
     }
     
-    void OutputToJson() {};
-    void GenerateJavaScript(){};
+    void SaveElementsToJson();
+    void LoadFromJson();
+    void GenerateJavascript();
 };
 
 #endif /* Portolfio_hpp */

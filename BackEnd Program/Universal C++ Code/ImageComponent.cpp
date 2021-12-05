@@ -9,9 +9,9 @@
 #include "ImageComponent.hpp"
 #include "imgui.h"
 
-ImageComponent::ImageComponent() : BaseComponent()
+ImageComponent::ImageComponent() : BaseComponent(ComponentType::IMAGE_COMPONENT)
 {
-    NameOfComponent = "New Component Element";
+    NameOfComponent = "New Image Element";
 }
 
 void ImageComponent::GUIUpdate(int PageCount, int ComponenetCount)
@@ -21,12 +21,14 @@ void ImageComponent::GUIUpdate(int PageCount, int ComponenetCount)
     ImGui::InputText("Link To Set on your website", &ImageDirectory[0], ImageDirectory.size());
 }
 
-void ImageComponent::JsonSaving()
+void ImageComponent::JsonSaving(nlohmann::json* json)
 {
-    
+    (*json)["ImageDirectory"] = ImageDirectory;
+    BaseComponent::JsonSaving(json);
 }
 
-void ImageComponent::JsonLoad()
+void ImageComponent::JsonLoad(nlohmann::json* json)
 {
-    
+    ImageDirectory = (*json)["ImageDirectory"];
+    BaseComponent::JsonLoad(json);
 }

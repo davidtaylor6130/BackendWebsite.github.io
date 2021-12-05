@@ -7,3 +7,18 @@
 //
 
 #include "BaseComponent.hpp"
+
+BaseComponent::BaseComponent(ComponentType type)
+{
+    Type = type;
+}
+
+void BaseComponent::JsonSaving(nlohmann::json *json)
+{
+    (*json)["ComponentType"] = Type;
+}
+
+void BaseComponent::JsonLoad(nlohmann::json *json)
+{
+    Type = (*json)["ComponentType"];
+}

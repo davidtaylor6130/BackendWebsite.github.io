@@ -7,3 +7,20 @@
 //
 
 #include "PortfolioSettings.hpp"
+
+PortfolioSettings::PortfolioSettings()
+{
+    jsonFileName.resize(500);
+}
+
+void PortfolioSettings::UpdateJsonSettings(nlohmann::json* json)
+{
+    (*json)["JsonFileName"] = jsonFileName;
+    (*json)["JavaScriptFileName"] = javascriptFileNmae;
+}
+
+void PortfolioSettings::LoadJsonSettings(nlohmann::json* json)
+{
+    jsonFileName = (*json)["JsonFileName"];
+    javascriptFileNmae = (*json)["JavaScriptFileName"];
+}

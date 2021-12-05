@@ -11,14 +11,19 @@
 
 #include <stdio.h>
 #include <string>
+#include "Json For Modern C++/json.hpp"
 
 class PortfolioSettings {
 public:
+    PortfolioSettings();
     
-    std::string jsonFileName = "FILE NOT SET";
-    std::string javascriptFileNmae = "FILE NOT SET";
+    std::string jsonFileName;
+    std::string javascriptFileNmae;
     
     bool isDataDirty;
+    
+    void UpdateJsonSettings(nlohmann::json* json);
+    void LoadJsonSettings(nlohmann::json* json);
 };
 
 #endif /* PortfolioSettings_hpp */

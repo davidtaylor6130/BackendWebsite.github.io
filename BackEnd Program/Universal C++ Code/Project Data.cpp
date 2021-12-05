@@ -12,6 +12,7 @@
 #include "LinkComponenet.hpp"
 #include "YoutubeEmbedComponent.hpp"
 #include "imgui.h"
+#include "Json For Modern C++/json.hpp"
 
 void ProjectData::GuiCall(int ID_Counter) {
     
@@ -44,6 +45,47 @@ void ProjectData::GuiCall(int ID_Counter) {
     }
 }
 
-void ProjectData::ConvertToJson(std::string FileAddres){
-    
+void ProjectData::SaveToJson(nlohmann::json* json)
+{
+    (*json)["ProjectName"] = ProjectName;
+    (*json)["IsProjectActive"] = IsThisProjectActive;
+    (*json)["ElementCount"] = PortfolioElements.size();
+    for (int i = 0; i < PortfolioElements.size(); i++)
+    {
+        nlohmann::json PortfolioJson;
+        PortfolioElements[i]->JsonSaving(&PortfolioJson);
+        (*json)["PortolfioElements"] += PortfolioJson;
+    }
+}
+
+void ProjectData::LoadFromJson(nlohmann::json* json)
+{
+    ProjectName = (*json)["ProjectName"];
+    IsThisProjectActive = (*json)["IsProjectActive"];
+    int ElementCount = (*json)["ElementCount"];
+    for (int i = 0; i < ElementCount; i++)
+    {
+        int temp = (int)(*json)["PortolfioElements"][i]["ComponentType"];
+        
+        switch (temp)
+        {
+            case (int)ComponentType::TEXT_COMPONENT:
+                AddNewElement<TextComponent>();
+                break;
+                
+            case (int)ComponentType::LINK_COMPONENT :
+                AddNewElement<LinkComponent>();
+                break;
+                
+            case (int)ComponentType::YOUTUBE_COMPONENT:
+                AddNewElement<YoutubeEmbedComponenet>();
+                break;
+                
+            case (int)ComponentType::IMAGE_COMPONENT:
+                AddNewElement<ImageComponent>();
+                break;
+        }
+        nlohmann::json* temp1 = &(*json)["PortolfioElements"][i];
+        PortfolioElements[i]->JsonLoad(temp1);
+    }
 }

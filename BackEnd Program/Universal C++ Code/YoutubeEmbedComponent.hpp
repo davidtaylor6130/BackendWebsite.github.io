@@ -10,7 +10,6 @@
 #define YoutubeEmbedComponent_hpp
 
 #include <stdio.h>
-#include <string>
 #include "BaseComponent.hpp"
 
 class YoutubeEmbedComponenet : public BaseComponent {
@@ -18,10 +17,10 @@ public:
     YoutubeEmbedComponenet();
     
     void GUIUpdate(int PageCount, int ComponentCount) override;
-    void JsonLoad() override;
-    void JsonSaving() override;
+    void JsonLoad(nlohmann::json* json) override;
+    void JsonSaving(nlohmann::json* json) override;
     
-    std::string YoutubeLink = "YOUTUBELINK HERE";
+    std::string YoutubeLink = "Default Text";
 };
 
 #endif /* YoutubeEmbedComponent_hpp */

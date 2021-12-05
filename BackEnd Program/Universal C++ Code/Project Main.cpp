@@ -56,8 +56,13 @@ void UniversalCPPCode::Update()
     if (ImGui::Button("Save Portfolio Changes"))
     {
         portfolio->settings.isDataDirty = false;
-        portfolio->GenerateJavaScript();
-        portfolio->OutputToJson();
+        portfolio->SaveElementsToJson();
+        portfolio->GenerateJavascript();
+    }
+    
+    if (ImGui::Button("Load Portfolio Via Json"))
+    {
+        portfolio->LoadFromJson();
     }
     
     ImGui::End();
@@ -113,7 +118,7 @@ void UniversalCPPCode::Update()
     }
     if (ImGui::Button("Add Youtube Embed Element"))
     {
-        //portfolio->GetCurrentlySelectedProject()->AddNewElement<YoutubeEmbedComponent>();
+        portfolio->GetCurrentlySelectedProject()->AddNewElement<YoutubeEmbedComponenet>();
     }
     if (ImGui::Button("Add Link Element"))
     {

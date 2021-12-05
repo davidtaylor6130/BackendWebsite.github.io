@@ -9,7 +9,7 @@
 #include "TextComponent.hpp"
 #include "imgui.h"
 
-TextComponent::TextComponent() : BaseComponent()
+TextComponent::TextComponent() : BaseComponent(ComponentType::TEXT_COMPONENT)
 {
     NameOfComponent = "New Text Element";
 }
@@ -21,12 +21,14 @@ void TextComponent::GUIUpdate(int PageCount, int ComponenetCount)
     ImGui::InputText("Text To place on your website", &TextForWebsite[0], TextForWebsite.size());
 }
 
-void TextComponent::JsonSaving()
+void TextComponent::JsonSaving(nlohmann::json* json)
 {
-    
+    (*json)["TextForWebsite"] = TextForWebsite;
+    BaseComponent::JsonSaving(json);
 }
 
-void TextComponent::JsonLoad()
+void TextComponent::JsonLoad(nlohmann::json* json)
 {
-    
+    TextForWebsite = (*json)["TextForWebsite"];
+    BaseComponent::JsonLoad(json);
 }

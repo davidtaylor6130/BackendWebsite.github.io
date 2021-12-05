@@ -9,9 +9,9 @@
 #include "YoutubeEmbedComponent.hpp"
 #include "imgui.h"
 
-YoutubeEmbedComponenet::YoutubeEmbedComponenet()
+YoutubeEmbedComponenet::YoutubeEmbedComponenet() : BaseComponent(ComponentType::YOUTUBE_COMPONENT)
 {
-    
+    NameOfComponent = "New Youtube Component";
 }
 
 void YoutubeEmbedComponenet::GUIUpdate(int PageCount, int ComponentCount) {
@@ -20,10 +20,12 @@ void YoutubeEmbedComponenet::GUIUpdate(int PageCount, int ComponentCount) {
     ImGui::InputText("Text To place on your website", &YoutubeLink[0], YoutubeLink.size());
 }
 
-void YoutubeEmbedComponenet::JsonLoad() {
-    
+void YoutubeEmbedComponenet::JsonSaving(nlohmann::json* json) {
+    (*json)["YoutubeEmbedLink"] = YoutubeLink;
+    BaseComponent::JsonSaving(json);
 }
 
-void YoutubeEmbedComponenet::JsonSaving() {
-    
+void YoutubeEmbedComponenet::JsonLoad(nlohmann::json* json) {
+    YoutubeLink = (*json)["YoutubeEmbedLink"];
+    BaseComponent::JsonLoad(json);
 }

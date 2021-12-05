@@ -25,11 +25,8 @@ public:
     
     
     void GuiCall(int PageCounter);
-    void ConvertToJson(std::string FileAddres);
-    void AddTextElement();
-    void AddYouTubeEmbedElement();
-    void AddLinkElement();
-    void AddImageElement();
+    void SaveToJson(nlohmann::json* json);
+    void LoadFromJson(nlohmann::json* json);
     
     
     template <typename T>

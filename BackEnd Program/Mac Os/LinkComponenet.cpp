@@ -9,7 +9,7 @@
 #include "LinkComponenet.hpp"
 #include "imgui.h"
 
-LinkComponent::LinkComponent() : BaseComponent()
+LinkComponent::LinkComponent() : BaseComponent(ComponentType::LINK_COMPONENT)
 {
     NameOfComponent = "New Link Element";
 }
@@ -21,12 +21,14 @@ void LinkComponent::GUIUpdate(int PageCount, int ComponenetCount)
     ImGui::InputText("Link To Set on your website", &LinkForWebsite[0], LinkForWebsite.size());
 }
 
-void LinkComponent::JsonSaving()
+void LinkComponent::JsonSaving(nlohmann::json* json)
 {
-    
+    (*json)["URL_Link"] = LinkForWebsite;
+    BaseComponent::JsonSaving(json);
 }
 
-void LinkComponent::JsonLoad()
+void LinkComponent::JsonLoad(nlohmann::json* json)
 {
-    
+    LinkForWebsite = (*json)["URL_Link"];
+    BaseComponent::JsonLoad(json);
 }
