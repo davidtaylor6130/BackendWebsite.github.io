@@ -22,7 +22,7 @@ function CreateHTMLProjectElements(){
  //Element 0
  // Youtube Component
  var portolioElemet = document.getElementById("Temp2");
- portolioElemet.src = "Default Text";
+ portolioElemet.src = "https://www.youtube.com/embed/qDBQzcDQiII";
 
  // Project number: 2
  //Element 0
