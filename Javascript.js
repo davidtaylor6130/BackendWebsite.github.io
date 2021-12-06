@@ -14,19 +14,19 @@ function CreateHTMLProjectElements(){
  //Element 0
  // Text Component
  var portolioElemet0 = document.getElementById("TEMP1 ");
- portfolioElement.innerHTML = "Default Text";
+ portolioElemet0.innerHTML = "Default Text";
 
  // Project number: 1
  //Element 0
  // Youtube Component
  var portolioElemet1 = document.getElementById("Temp2 ");
- portfolioElement.src = "Default Text";
+ portolioElemet0.src = "Default Text";
 
  // Project number: 2
  //Element 0
  // Link Component
  var portolioElemet2 = document.getElementById("Temp3 ");
- portfolioElement.href = "www.google.com";
+ portolioElemet0.href = "www.google.com";
 
  // Project number: 3
 
