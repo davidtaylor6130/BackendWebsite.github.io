@@ -1,0 +1,49 @@
+{
+    "Project Count": 4,
+    "Projects": [
+        {
+            "ElementCount": 1,
+            "IsProjectActive": true,
+            "PortolfioElements": [
+                {
+                    "ComponentType": 1,
+                    "TextForWebsite": "Default Text"
+                }
+            ],
+            "ProjectName": "New Project"
+        },
+        {
+            "ElementCount": 1,
+            "IsProjectActive": true,
+            "PortolfioElements": [
+                {
+                    "ComponentType": 4,
+                    "YoutubeEmbedLink": "Default Text"
+                }
+            ],
+            "ProjectName": "New Project"
+        },
+        {
+            "ElementCount": 1,
+            "IsProjectActive": true,
+            "PortolfioElements": [
+                {
+                    "ComponentType": 2,
+                    "URL_Link": "www.google.com"
+                }
+            ],
+            "ProjectName": "New Project"
+        },
+        {
+            "ElementCount": 1,
+            "IsProjectActive": true,
+            "PortolfioElements": [
+                {
+                    "ComponentType": 3,
+                    "ImageDirectory": "Put Image Directory Here"
+                }
+            ],
+            "ProjectName": "New Project"
+        }
+    ]
+}
