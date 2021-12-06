@@ -5,7 +5,8 @@ function LoadPortfolioWebsite(){
 }
 
 function LoadPortfolio(SettingFileLocation) {
-  fetch(SettingFileLocation).then(function(resp) {return resp.json();}).then(function(data){console.log(data); portfolioJson = data; CreateHTMLProjectElements();});
+  //fetch(SettingFileLocation).then(function(resp) {return resp.json();}).then(function(data){console.log(data); portfolioJson = data; CreateHTMLProjectElements();});
+  CreateHTMLProjectElements();
 }
 
 function CreateHTMLProjectElements(){
