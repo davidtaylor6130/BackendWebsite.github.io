@@ -9,7 +9,7 @@ function LoadPortfolio(SettingFileLocation) {
 }
 
 function CreateHTMLProjectElements(){
-    for (let i = 0; i < portfolioJson[projectCount]; i++)
+    for (let i = 0; i < 4; i++)
     {
         // Project number: 0
         //Element 0
