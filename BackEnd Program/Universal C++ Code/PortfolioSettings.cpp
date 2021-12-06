@@ -11,6 +11,7 @@
 PortfolioSettings::PortfolioSettings()
 {
     jsonFileName.resize(500);
+    javascriptFileNmae.resize(500);
 }
 
 void PortfolioSettings::UpdateJsonSettings(nlohmann::json* json)

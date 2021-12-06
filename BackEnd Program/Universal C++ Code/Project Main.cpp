@@ -65,6 +65,13 @@ void UniversalCPPCode::Update()
         portfolio->LoadFromJson();
     }
     
+    ImGui::Separator();
+    
+    if (ImGui::Button("Genarate Javascript Code"))
+    {
+        portfolio->GenerateJavascript();
+    }
+    
     ImGui::End();
 
     ImGui::Begin("Portfolio", &p_NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
