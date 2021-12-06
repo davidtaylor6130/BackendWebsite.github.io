@@ -33,7 +33,7 @@ function CreateHTMLProjectElements(){
         //Element 0
         // Text Component
         var portolioElemet0 = document.getElementById("4");
-        portolioElemet0.src = "Put Image Directory Here";
+        portolioElemet0.src = "Test.png";
 
     }
 }
