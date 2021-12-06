@@ -20,7 +20,7 @@ public:
     void JsonLoad(nlohmann::json* json) override;
     void JsonSaving(nlohmann::json* json) override;
     
-    std::string YoutubeLink = "Default Text";
+    char YoutubeLink[CharacterLengthMax] = "Default Text";
 };
 
 #endif /* YoutubeEmbedComponent_hpp */

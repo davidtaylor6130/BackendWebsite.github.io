@@ -20,7 +20,7 @@ public:
     void JsonLoad(nlohmann::json* json) override;
     void JsonSaving(nlohmann::json* json) override;
     
-    std::string ImageDirectory = "Put Image Directory Here";
+    char ImageDirectory[CharacterLengthMax] = "Put Image Directory Here";
 };
 
 #endif /* ImageComponent_hpp */

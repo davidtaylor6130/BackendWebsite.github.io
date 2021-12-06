@@ -24,6 +24,7 @@ void Portfolio::SaveElementsToJson()
     
     nlohmann::json json;
     (json)["Project Count"] = projectData.size();
+    json["BackendToolVersion"] = "V-1.0.0";
     
     for (int i = 0; i < projectData.size(); i++)
     {
@@ -64,17 +65,15 @@ void Portfolio::GenerateJavascript()
     JavascriptFile << "var portfolioJson;" << std::endl;
     JavascriptFile << "// Write Jacascript Here" << std::endl;
     JavascriptFile << "function LoadPortfolioWebsite(){" << std::endl;
-    JavascriptFile << " LoadPortfolio(" + settings.jsonFileName + ")" << std::endl;
+    JavascriptFile << " LoadPortfolio(" << '\u0022' << settings.jsonFileName << '\u0022' << ")" << std::endl;
     JavascriptFile << "}" << std::endl;
     JavascriptFile << std::endl;
     JavascriptFile << "function LoadPortfolio(SettingFileLocation) {" << std::endl;
-    JavascriptFile << "  fetch(SettingFileLocation).then(function(resp) {return resp.json();}).then(function(data){console.log(data); portfolioJson = data; CreateHTMLProjectElements();});" << std::endl;
+    JavascriptFile << "  //fetch(SettingFileLocation).then(function(resp) {return resp.json();}).then(function(data){console.log(data); portfolioJson = data; CreateHTMLProjectElements();});" << std::endl;
+    JavascriptFile << "  CreateHTMLProjectElements();" << std::endl;
     JavascriptFile << "}" << std::endl;
     JavascriptFile << std::endl;
     JavascriptFile << "function CreateHTMLProjectElements(){" << std::endl;
-    JavascriptFile << " var portfolioSection = document.getElementById('modelSection');" << std::endl;
-    JavascriptFile << " for (let i = 0; i < portfolioJson[""projectCount""]; i++)" << std::endl;
-    JavascriptFile << " {" << std::endl;
     JavascriptFile << std::endl;
     
     for (int i = 0 ; i < projectData.size(); i++)
@@ -90,28 +89,28 @@ void Portfolio::GenerateJavascript()
                     
                 case ComponentType::TEXT_COMPONENT:
                     JavascriptFile << " // Text Component" << std::endl;
-                    JavascriptFile << " var portolioElemet" +  std::to_string(j) + " = document.getElementById(" << '\u0022' << projectData[i]->PortfolioElements[j]->HTML_ID << '\u0022' << ");" << std::endl;
+                    JavascriptFile << " var portolioElemet" +  std::to_string(i) + " = document.getElementById(" << '\u0022' << projectData[i]->PortfolioElements[j]->HTML_ID << '\u0022' << ");" << std::endl;
                     temp = dynamic_cast<TextComponent*>(projectData[i]->PortfolioElements[j])->TextForWebsite;
                     JavascriptFile << " portfolioElement.innerHTML = " << '\u0022' << temp << '\u0022' << ";" << std::endl;
                     break;
                     
                 case ComponentType::LINK_COMPONENT:
-                    JavascriptFile << " // Text Component" << std::endl;
-                    JavascriptFile << " var portolioElemet" +  std::to_string(j) + " = document.getElementById(" << '\u0022' << projectData[i]->PortfolioElements[j]->HTML_ID << '\u0022' << ");" << std::endl;
+                    JavascriptFile << " // Link Component" << std::endl;
+                    JavascriptFile << " var portolioElemet" +  std::to_string(i) + " = document.getElementById(" << '\u0022' << projectData[i]->PortfolioElements[j]->HTML_ID << '\u0022' << ");" << std::endl;
                     temp = dynamic_cast<LinkComponent*>(projectData[i]->PortfolioElements[j])->LinkForWebsite;
                     JavascriptFile << " portfolioElement.href = " << '\u0022' << temp << '\u0022' << ";" << std::endl;
                     break;
                     
                 case ComponentType::IMAGE_COMPONENT:
-                    JavascriptFile << " // Text Component" << std::endl;
-                    JavascriptFile << " var portolioElemet" +  std::to_string(j) + " = document.getElementById(" << '\u0022' << projectData[i]->PortfolioElements[j]->HTML_ID << '\u0022' << ");" << std::endl;
+                    JavascriptFile << " // Image Component" << std::endl;
+                    JavascriptFile << " var portolioElemet" +  std::to_string(i) + " = document.getElementById(" << '\u0022' << projectData[i]->PortfolioElements[j]->HTML_ID << '\u0022' << ");" << std::endl;
                     temp = dynamic_cast<ImageComponent*>(projectData[i]->PortfolioElements[j])->ImageDirectory;
                     JavascriptFile << " portfolioElement.src = " << '\u0022' << temp << '\u0022' << ";" << std::endl;
                     break;
                     
                 case ComponentType::YOUTUBE_COMPONENT:
-                    JavascriptFile << " // Text Component" << std::endl;
-                    JavascriptFile << " var portolioElemet" +  std::to_string(j) + " = document.getElementById(" << '\u0022' << projectData[i]->PortfolioElements[j]->HTML_ID << '\u0022' << ");" << std::endl;
+                    JavascriptFile << " // Youtube Component" << std::endl;
+                    JavascriptFile << " var portolioElemet" +  std::to_string(i) + " = document.getElementById(" << '\u0022' << projectData[i]->PortfolioElements[j]->HTML_ID << '\u0022' << ");" << std::endl;
                     temp = dynamic_cast<YoutubeEmbedComponenet*>(projectData[i]->PortfolioElements[j])->YoutubeLink;
                     JavascriptFile << " portfolioElement.src = " << '\u0022' << temp << '\u0022' << ";" << std::endl;
                     break;
@@ -120,7 +119,6 @@ void Portfolio::GenerateJavascript()
     }
     
     JavascriptFile << std::endl;
-    JavascriptFile << " }" << std::endl;
     JavascriptFile << "}" << std::endl;
     
     JavascriptFile << "" << std::endl;

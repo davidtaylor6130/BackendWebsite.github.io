@@ -11,14 +11,23 @@
 
 ImageComponent::ImageComponent() : BaseComponent(ComponentType::IMAGE_COMPONENT)
 {
-    NameOfComponent = "New Image Element";
+    WriteToCharArray(NameOfComponent, "New Image Element");
 }
 
 void ImageComponent::GUIUpdate(int PageCount, int ComponenetCount)
 {
-    ImGui::InputText("Name Of Text Element", &NameOfComponent[0], NameOfComponent.size());
-    ImGui::InputText("ID Set in HTML", &HTML_ID[0], HTML_ID.size());
-    ImGui::InputText("Link To Set on your website", &ImageDirectory[0], ImageDirectory.size());
+    std::string ID;
+    ID = std::to_string(PageCount) + ":" + std::to_string(ComponenetCount) + ":" + "1" ;
+    ImGui::PushID(&ID[0], &ID[ID.length()-1]);
+    
+    ImGui::InputText("Name Of Text Element", NameOfComponent, IM_ARRAYSIZE(NameOfComponent));
+    ID = std::to_string(PageCount) + ":" + std::to_string(ComponenetCount) + ":" + "2" ;
+    ImGui::PushID(&ID[0], &ID[ID.length()-1]);
+    ImGui::InputText("ID Set in HTML", HTML_ID, IM_ARRAYSIZE(HTML_ID));
+    
+    ID = std::to_string(PageCount) + ":" + std::to_string(ComponenetCount) + ":" + "3" ;
+    ImGui::PushID(&ID[0], &ID[ID.length()-1]);
+    ImGui::InputText("Link To Set on your website", ImageDirectory, IM_ARRAYSIZE(ImageDirectory));
 }
 
 void ImageComponent::JsonSaving(nlohmann::json* json)
@@ -29,6 +38,6 @@ void ImageComponent::JsonSaving(nlohmann::json* json)
 
 void ImageComponent::JsonLoad(nlohmann::json* json)
 {
-    ImageDirectory = (*json)["ImageDirectory"];
+    WriteToCharArray(ImageDirectory, std::string((*json)["ImageDirectory"]));
     BaseComponent::JsonLoad(json);
 }

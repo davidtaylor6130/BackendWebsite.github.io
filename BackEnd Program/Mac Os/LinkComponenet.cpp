@@ -11,14 +11,14 @@
 
 LinkComponent::LinkComponent() : BaseComponent(ComponentType::LINK_COMPONENT)
 {
-    NameOfComponent = "New Link Element";
+    WriteToCharArray(NameOfComponent, "New Link ELement");
 }
 
 void LinkComponent::GUIUpdate(int PageCount, int ComponenetCount)
 {
-    ImGui::InputText("Name Of Text Element", &NameOfComponent[0], NameOfComponent.size());
-    ImGui::InputText("ID Set in HTML", &HTML_ID[0], HTML_ID.size());
-    ImGui::InputText("Link To Set on your website", &LinkForWebsite[0], LinkForWebsite.size());
+    ImGui::InputText("Name Of Text Element", NameOfComponent, IM_ARRAYSIZE(NameOfComponent));
+    ImGui::InputText("ID Set in HTML", HTML_ID, IM_ARRAYSIZE(HTML_ID));
+    ImGui::InputText("Link To Set on your website", LinkForWebsite, IM_ARRAYSIZE(LinkForWebsite));
 }
 
 void LinkComponent::JsonSaving(nlohmann::json* json)
@@ -29,6 +29,6 @@ void LinkComponent::JsonSaving(nlohmann::json* json)
 
 void LinkComponent::JsonLoad(nlohmann::json* json)
 {
-    LinkForWebsite = (*json)["URL_Link"];
+    WriteToCharArray(LinkForWebsite, std::string((*json)["URL_Link"]) );
     BaseComponent::JsonLoad(json);
 }

@@ -20,7 +20,7 @@ public:
     void JsonLoad(nlohmann::json* json) override;
     void JsonSaving(nlohmann::json* json) override;
     
-    std::string TextForWebsite = "Default Text";
+    char TextForWebsite[CharacterLengthMax] = "Default Text";
 };
 
 #endif /* TextComponent_hpp */

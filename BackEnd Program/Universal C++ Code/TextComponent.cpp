@@ -11,14 +11,14 @@
 
 TextComponent::TextComponent() : BaseComponent(ComponentType::TEXT_COMPONENT)
 {
-    NameOfComponent = "New Text Element";
+    WriteToCharArray(NameOfComponent, "New Text Element");
 }
 
 void TextComponent::GUIUpdate(int PageCount, int ComponenetCount)
 {
-    ImGui::InputText("Name Of Text Element", &NameOfComponent[0], NameOfComponent.size());
-    ImGui::InputText("ID Set in HTML", &HTML_ID[0], HTML_ID.size());
-    ImGui::InputText("Text To place on your website", &TextForWebsite[0], TextForWebsite.size());
+    ImGui::InputText("Name Of Text Element", NameOfComponent, IM_ARRAYSIZE(NameOfComponent));
+    ImGui::InputText("ID Set in HTML", HTML_ID, IM_ARRAYSIZE(HTML_ID));
+    ImGui::InputText("Text To place on your website", TextForWebsite, IM_ARRAYSIZE(TextForWebsite));
 }
 
 void TextComponent::JsonSaving(nlohmann::json* json)
@@ -29,6 +29,6 @@ void TextComponent::JsonSaving(nlohmann::json* json)
 
 void TextComponent::JsonLoad(nlohmann::json* json)
 {
-    TextForWebsite = (*json)["TextForWebsite"];
+    WriteToCharArray(TextForWebsite, std::string((*json)["TextForWebsitw"]));
     BaseComponent::JsonLoad(json);
 }

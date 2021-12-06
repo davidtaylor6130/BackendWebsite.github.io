@@ -22,3 +22,12 @@ void BaseComponent::JsonLoad(nlohmann::json *json)
 {
     Type = (*json)["ComponentType"];
 }
+
+void BaseComponent::WriteToCharArray(char* array, std::string toCopy)
+{
+    int i = 0;
+    for (i = 0; i < toCopy.size(); i++)
+        array[i]  = toCopy[i];
+    
+    array[i+1] = '\0';
+}

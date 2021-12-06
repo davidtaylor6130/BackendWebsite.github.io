@@ -55,9 +55,7 @@ void UniversalCPPCode::Update()
     
     if (ImGui::Button("Save Portfolio Changes"))
     {
-        portfolio->settings.isDataDirty = false;
         portfolio->SaveElementsToJson();
-        portfolio->GenerateJavascript();
     }
     
     if (ImGui::Button("Load Portfolio Via Json"))

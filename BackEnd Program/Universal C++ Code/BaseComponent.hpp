@@ -13,6 +13,8 @@
 #include <string>
 #include "Json For Modern C++/json.hpp"
 
+#define CharacterLengthMax 500
+
 enum class ComponentType
 {
     BASE_COMPONENT = 0,
@@ -26,14 +28,16 @@ class BaseComponent{
 public:
     BaseComponent(ComponentType type);
     
-    std::string NameOfComponent = "NEW TEXT ELEMENT";
-    std::string HTML_ID = "NO ID SET";
+    char NameOfComponent[CharacterLengthMax] = "NEW TEXT ELEMENT";
+    char HTML_ID[CharacterLengthMax] = "NO ID SET";
     
     ComponentType Type;
     
     virtual void GUIUpdate(int PageCount, int ComponentCount) = 0;
     virtual void JsonSaving(nlohmann::json* json) = 0;
     virtual void JsonLoad(nlohmann::json* json) = 0;
+    
+    void WriteToCharArray(char* array, std::string toCopy);
 };
 
 #endif /* BaseComponent_hpp */

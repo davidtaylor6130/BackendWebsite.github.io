@@ -20,7 +20,7 @@ public:
     void JsonLoad(nlohmann::json* json) override;
     void JsonSaving(nlohmann::json* json) override;
     
-    std::string LinkForWebsite = "www.google.com";
+    char LinkForWebsite[CharacterLengthMax] = "www.google.com";
 };
 
 #endif /* LinkComponenet_hpp */
