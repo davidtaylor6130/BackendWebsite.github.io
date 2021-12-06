@@ -29,6 +29,6 @@ void TextComponent::JsonSaving(nlohmann::json* json)
 
 void TextComponent::JsonLoad(nlohmann::json* json)
 {
-    WriteToCharArray(TextForWebsite, std::string((*json)["TextForWebsitw"]));
+    WriteToCharArray(TextForWebsite, std::string((*json)["TextForWebsite"]));
     BaseComponent::JsonLoad(json);
 }

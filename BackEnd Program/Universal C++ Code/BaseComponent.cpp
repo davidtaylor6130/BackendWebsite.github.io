@@ -16,11 +16,13 @@ BaseComponent::BaseComponent(ComponentType type)
 void BaseComponent::JsonSaving(nlohmann::json *json)
 {
     (*json)["ComponentType"] = Type;
+    (*json)["ComponentHTMLID"] = HTML_ID;
 }
 
 void BaseComponent::JsonLoad(nlohmann::json *json)
 {
     Type = (*json)["ComponentType"];
+    WriteToCharArray(HTML_ID, std::string((*json)["ComponentHTMLID"]));
 }
 
 void BaseComponent::WriteToCharArray(char* array, std::string toCopy)

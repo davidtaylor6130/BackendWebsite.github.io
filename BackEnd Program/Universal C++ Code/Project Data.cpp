@@ -27,7 +27,7 @@ void ProjectData::GuiCall(int ID_Counter) {
         std::string ID = std::to_string(ID_Counter) + ":" + std::to_string(i);
         ImGui::PushID(&ID[0], &ID[ID.length()-1]);
         
-        bool ShowComponentGUI = ImGui::CollapsingHeader(PortfolioElements[i]->NameOfComponent.c_str(), ImGuiTreeNodeFlags_AllowItemOverlap);
+        bool ShowComponentGUI = ImGui::CollapsingHeader((PortfolioElements[i]->NameOfComponent), ImGuiTreeNodeFlags_AllowItemOverlap);
         ImGui::SameLine(ImGui::GetWindowWidth() - 25);
         bool RemoveComponent = ImGui::Button("X");
         
