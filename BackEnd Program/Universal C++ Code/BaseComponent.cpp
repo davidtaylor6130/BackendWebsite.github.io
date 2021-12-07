@@ -31,5 +31,5 @@ void BaseComponent::WriteToCharArray(char* array, std::string toCopy)
     for (i = 0; i < toCopy.size(); i++)
         array[i]  = toCopy[i];
     
-    array[i+1] = '\0';
+    array[i] = '\0';
 }

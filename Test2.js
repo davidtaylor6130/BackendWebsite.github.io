@@ -23,7 +23,7 @@ function CreateHTMLProjectElements(){
  //Element 0
  // Image Component
  var portolioElemet = document.getElementById("idImageET");
- portolioElemet.src = "Test.pnge";
+ portolioElemet.src = "Test.png";
 
 }
 
