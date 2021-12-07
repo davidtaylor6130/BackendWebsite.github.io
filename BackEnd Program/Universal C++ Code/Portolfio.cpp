@@ -67,18 +67,7 @@ void Portfolio::GenerateJavascript()
 {
     LoadFromJson();
     std::ofstream JavascriptFile(settings.javascriptFileNmae);
-    
-    JavascriptFile << "var portfolioJson;" << std::endl;
-    JavascriptFile << "// Write Jacascript Here" << std::endl;
-    JavascriptFile << "function LoadPortfolioWebsite(){" << std::endl;
-    JavascriptFile << " LoadPortfolio(" << '\u0022' << settings.jsonFileName << '\u0022' << ")" << std::endl;
-    JavascriptFile << "}" << std::endl;
-    JavascriptFile << std::endl;
-    JavascriptFile << "function LoadPortfolio(SettingFileLocation) {" << std::endl;
-    JavascriptFile << "  //fetch(SettingFileLocation).then(function(resp) {return resp.json();}).then(function(data){console.log(data); portfolioJson = data; CreateHTMLProjectElements();});" << std::endl;
-    JavascriptFile << "  CreateHTMLProjectElements();" << std::endl;
-    JavascriptFile << "}" << std::endl;
-    JavascriptFile << std::endl;
+
     JavascriptFile << "function CreateHTMLProjectElements(){" << std::endl;
     JavascriptFile << std::endl;
     

@@ -39,6 +39,6 @@ void YoutubeEmbedComponenet::JsonSaving(nlohmann::json* json) {
 }
 
 void YoutubeEmbedComponenet::JsonLoad(nlohmann::json* json) {
-    WriteToCharArray(NameOfComponent, ((*json)["YoutubeEmbedLink"]));
+    WriteToCharArray(YoutubeLink, ((*json)["YoutubeEmbedLink"]));
     BaseComponent::JsonLoad(json);
 }
