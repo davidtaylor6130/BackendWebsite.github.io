@@ -7,7 +7,16 @@
 //
 
 #include "ImageComponent.hpp"
-#include "imgui.h"
+
+
+#ifdef __APPLE__
+    #include "imgui.h"
+#endif
+
+#ifdef _WIN32
+    #include "../Windowns Code/imgui.h"
+#endif
+
 
 ImageComponent::ImageComponent() : BaseComponent(ComponentType::IMAGE_COMPONENT)
 {
