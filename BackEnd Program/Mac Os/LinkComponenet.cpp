@@ -16,9 +16,21 @@ LinkComponent::LinkComponent() : BaseComponent(ComponentType::LINK_COMPONENT)
 
 void LinkComponent::GUIUpdate(int PageCount, int ComponenetCount)
 {
-    ImGui::InputText("Name Of Text Element", NameOfComponent, IM_ARRAYSIZE(NameOfComponent));
-    ImGui::InputText("ID Set in HTML", HTML_ID, IM_ARRAYSIZE(HTML_ID));
-    ImGui::InputText("Link To Set on your website", LinkForWebsite, IM_ARRAYSIZE(LinkForWebsite));
+    std::string ID;
+    ID = std::to_string(PageCount) + ":" + std::to_string(ComponenetCount) + ":" + "1" ;
+    ImGui::PushID(&ID[0], &ID[ID.length()-1]);
+    ImGui::InputText("Name", NameOfComponent, IM_ARRAYSIZE(NameOfComponent));
+    ImGui::PopID();
+    
+    ID = std::to_string(PageCount) + ":" + std::to_string(ComponenetCount) + ":" + "2" ;
+    ImGui::PushID(&ID[0], &ID[ID.length()-1]);
+    ImGui::InputText("ID", HTML_ID, IM_ARRAYSIZE(HTML_ID));
+    ImGui::PopID();
+    
+    ID = std::to_string(PageCount) + ":" + std::to_string(ComponenetCount) + ":" + "3" ;
+    ImGui::PushID(&ID[0], &ID[ID.length()-1]);
+    ImGui::InputText("Link To Website (full url including https://)", LinkForWebsite, IM_ARRAYSIZE(LinkForWebsite));
+    ImGui::PopID();
 }
 
 void LinkComponent::JsonSaving(nlohmann::json* json)

@@ -11,11 +11,17 @@
 
 #include <ostream>
 #include <fstream>
-#include <filesystem>
+
+#include "imgui.h"
+
 #include "TextComponent.hpp"
 #include "ImageComponent.hpp"
 #include "LinkComponenet.hpp"
 #include "YoutubeEmbedComponent.hpp"
+
+Portfolio::Portfolio()
+{
+}
 
 void Portfolio::SaveElementsToJson()
 {
@@ -114,6 +120,9 @@ void Portfolio::GenerateJavascript()
                     temp = dynamic_cast<YoutubeEmbedComponenet*>(projectData[i]->PortfolioElements[j])->YoutubeLink;
                     JavascriptFile << " portolioElemet.src = " << '\u0022' << temp << '\u0022' << ";" << std::endl;
                     break;
+                    
+                default:
+                    break;
             }
         }
     }
@@ -122,4 +131,24 @@ void Portfolio::GenerateJavascript()
     JavascriptFile << "}" << std::endl;
     
     JavascriptFile << "" << std::endl;
+}
+
+void Portfolio::OutputLogGUICall()
+{
+    for (int i = 0; i < Outputlog.size(); i++)
+    {
+        ImGui::PushID(i);
+        ImGui::Text(&((Outputlog[i])[0]));
+        ImGui::PopID();
+    }
+}
+
+void Portfolio::AddToLog(std::string toAdd)
+{
+    Outputlog.push_back(toAdd);
+}
+
+void Portfolio::ClearLog()
+{
+    Outputlog.clear();
 }

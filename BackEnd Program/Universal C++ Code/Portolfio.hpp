@@ -18,7 +18,11 @@
 
 class Portfolio {
 public:
+    Portfolio();
+    
     ProjectData newProject;
+    
+    std::vector<std::string> Outputlog;
     
     std::vector<ProjectData*> projectData;
     PortfolioSettings settings;
@@ -39,6 +43,9 @@ public:
     void SaveElementsToJson();
     void LoadFromJson();
     void GenerateJavascript();
+    void AddToLog(std::string toAdd);
+    void OutputLogGUICall();
+    void ClearLog();
 };
 
 #endif /* Portolfio_hpp */

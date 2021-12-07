@@ -26,11 +26,20 @@ UniversalCPPCode::~UniversalCPPCode()
 
 void UniversalCPPCode::Update()
 {
+    ImGuiIO& io = ImGui::GetIO();
+    
+    
+    
+    ImVec2 SettingsPos = ImVec2(0.0f, io.DisplaySize.y * 0.0f), SettingsSize = ImVec2(io.DisplaySize.x * 0.2f, io.DisplaySize.y * 0.333f);
+    ImVec2 ToolsPos = ImVec2(0.0f, io.DisplaySize.y * 0.333f), ToolsSize = ImVec2(io.DisplaySize.x * 0.2f, io.DisplaySize.y * 0.333f);
+    ImVec2 OutputPos = ImVec2(0.0f, io.DisplaySize.y * 0.666f), OutputSize = ImVec2(io.DisplaySize.x * 1.0f, io.DisplaySize.y * 0.333f);
+    ImVec2 MainWindowPos = ImVec2(io.DisplaySize.x * 0.2f, 0.0f), MainWindowSize = ImVec2(io.DisplaySize.x * 0.8f, io.DisplaySize.y * 0.666f);
+    
     //---------- PLACE GUI CODE HERE
     static bool p_NULL = NULL;
     ImGui::Begin("Settings", &p_NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
-    ImGui::SetWindowPos(ImVec2(0,0));
-    ImGui::SetWindowSize(ImVec2(300, 300));
+    ImGui::SetWindowPos(SettingsPos);
+    ImGui::SetWindowSize(SettingsSize);
     
     
     if (portfolio->settings.isDataDirty)
@@ -55,55 +64,33 @@ void UniversalCPPCode::Update()
     
     if (ImGui::Button("Save Portfolio Changes"))
     {
+        portfolio->AddToLog("Saving Changes");
         portfolio->SaveElementsToJson();
+        portfolio->AddToLog("Saving Compleated");
     }
     
     if (ImGui::Button("Load Portfolio Via Json"))
     {
+        portfolio->AddToLog("Loading Portfolio");
         portfolio->LoadFromJson();
+        portfolio->AddToLog("Loading sucsessfull");
     }
     
     ImGui::Separator();
     
     if (ImGui::Button("Genarate Javascript Code"))
     {
+        portfolio->AddToLog("Generating JS Now");
         portfolio->GenerateJavascript();
+        portfolio->AddToLog("JS Genorated in Given File");
     }
-    
-    ImGui::End();
-
-    ImGui::Begin("Portfolio", &p_NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
-    ImGui::SetWindowPos(ImVec2(300,0));
-    ImGui::SetWindowSize(ImVec2(900, 1000));
-    
-    ImGui::BeginTabBar("Projects");
-    
-    int ID_Counter = 0;
-    for (int i = 0; i < portfolio->projectData.size(); i++)
-    {
-        ID_Counter++;
-        ImGui::PushID(ID_Counter);
-        
-        
-        if (ImGui::BeginTabItem(&portfolio->projectData[i]->ProjectName[0], &portfolio->projectData[i]->IsOpen))
-        {
-            portfolio->selectedIndex = i;
-            portfolio->projectData[i]->GuiCall(ID_Counter);
-            ImGui::EndTabItem();
-        }
-        ImGui::PopID();
-        
-    }
-    
-    portfolio->previousSelectedIndex = portfolio->selectedIndex;
-    ImGui::EndTabBar();
     
     ImGui::End();
     
     
     ImGui::Begin("ToolBox", &p_NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
-    ImGui::SetWindowPos(ImVec2(0,300));
-    ImGui::SetWindowSize(ImVec2(300, 500));
+    ImGui::SetWindowPos(ToolsPos);
+    ImGui::SetWindowSize(ToolsSize);
     
     if (ImGui::Button("Add New Project to your portfolio"))
     {
@@ -133,6 +120,45 @@ void UniversalCPPCode::Update()
     {
         portfolio->GetCurrentlySelectedProject()->AddNewElement<ImageComponent>();
     }
+    
+    ImGui::End();
+    
+    
+    ImGui::Begin("Output Log",&p_NULL ,ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
+    ImGui::SetWindowPos(OutputPos);
+    ImGui::SetWindowSize(OutputSize);
+    
+    portfolio->OutputLogGUICall();
+    
+    ImGui::End();
+    
+    //-----------------------------------------------------------------------------
+    
+    ImGui::Begin("Portfolio", &p_NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
+    ImGui::SetWindowPos(MainWindowPos);
+    ImGui::SetWindowSize(MainWindowSize);
+    
+    ImGui::BeginTabBar("Projects");
+    
+    int ID_Counter = 0;
+    for (int i = 0; i < portfolio->projectData.size(); i++)
+    {
+        ID_Counter++;
+        ImGui::PushID(ID_Counter);
+        
+        
+        if (ImGui::BeginTabItem(&portfolio->projectData[i]->ProjectName[0], &portfolio->projectData[i]->IsOpen))
+        {
+            portfolio->selectedIndex = i;
+            portfolio->projectData[i]->GuiCall(ID_Counter);
+            ImGui::EndTabItem();
+        }
+        ImGui::PopID();
+        
+    }
+    
+    portfolio->previousSelectedIndex = portfolio->selectedIndex;
+    ImGui::EndTabBar();
     
     ImGui::End();
     

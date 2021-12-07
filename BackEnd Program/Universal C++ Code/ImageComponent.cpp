@@ -19,15 +19,18 @@ void ImageComponent::GUIUpdate(int PageCount, int ComponenetCount)
     std::string ID;
     ID = std::to_string(PageCount) + ":" + std::to_string(ComponenetCount) + ":" + "1" ;
     ImGui::PushID(&ID[0], &ID[ID.length()-1]);
+    ImGui::InputText("Name", NameOfComponent, IM_ARRAYSIZE(NameOfComponent));
+    ImGui::PopID();
     
-    ImGui::InputText("Name Of Text Element", NameOfComponent, IM_ARRAYSIZE(NameOfComponent));
     ID = std::to_string(PageCount) + ":" + std::to_string(ComponenetCount) + ":" + "2" ;
     ImGui::PushID(&ID[0], &ID[ID.length()-1]);
-    ImGui::InputText("ID Set in HTML", HTML_ID, IM_ARRAYSIZE(HTML_ID));
+    ImGui::InputText("ID", HTML_ID, IM_ARRAYSIZE(HTML_ID));
+    ImGui::PopID();
     
     ID = std::to_string(PageCount) + ":" + std::to_string(ComponenetCount) + ":" + "3" ;
     ImGui::PushID(&ID[0], &ID[ID.length()-1]);
-    ImGui::InputText("Link To Set on your website", ImageDirectory, IM_ARRAYSIZE(ImageDirectory));
+    ImGui::InputText("Image Directory", ImageDirectory, IM_ARRAYSIZE(ImageDirectory));
+    ImGui::PopID();
 }
 
 void ImageComponent::JsonSaving(nlohmann::json* json)

@@ -14,10 +14,23 @@ YoutubeEmbedComponenet::YoutubeEmbedComponenet() : BaseComponent(ComponentType::
     WriteToCharArray(NameOfComponent, "New Youtube Component");
 }
 
-void YoutubeEmbedComponenet::GUIUpdate(int PageCount, int ComponentCount) {
-    ImGui::InputText("Name Of Text Element", NameOfComponent, IM_ARRAYSIZE(NameOfComponent));
-    ImGui::InputText("ID Set in HTML", HTML_ID, IM_ARRAYSIZE(HTML_ID));
-    ImGui::InputText("Text To place on your website", YoutubeLink, IM_ARRAYSIZE(YoutubeLink));
+void YoutubeEmbedComponenet::GUIUpdate(int PageCount, int ComponentCount)
+{
+    std::string ID;
+    ID = std::to_string(PageCount) + ":" + std::to_string(ComponentCount) + ":" + "1" ;
+    ImGui::PushID(&ID[0], &ID[ID.length()-1]);
+    ImGui::InputText("Name", NameOfComponent, IM_ARRAYSIZE(NameOfComponent));
+    ImGui::PopID();
+    
+    ID = std::to_string(PageCount) + ":" + std::to_string(ComponentCount) + ":" + "1" ;
+    ImGui::PushID(&ID[0], &ID[ID.length()-1]);
+    ImGui::InputText("ID", HTML_ID, IM_ARRAYSIZE(HTML_ID));
+    ImGui::PopID();
+    
+    ID = std::to_string(PageCount) + ":" + std::to_string(ComponentCount) + ":" + "1" ;
+    ImGui::PushID(&ID[0], &ID[ID.length()-1]);
+    ImGui::InputText("Youtube Video URL (from embed code)", YoutubeLink, IM_ARRAYSIZE(YoutubeLink));
+    ImGui::PopID();
 }
 
 void YoutubeEmbedComponenet::JsonSaving(nlohmann::json* json) {
