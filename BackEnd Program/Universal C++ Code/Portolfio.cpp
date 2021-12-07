@@ -23,7 +23,6 @@
 
 #include "TextComponent.hpp"
 #include "ImageComponent.hpp"
-#include ""
 #include "LinkComponenet.hpp"
 #include "YoutubeEmbedComponent.hpp"
 

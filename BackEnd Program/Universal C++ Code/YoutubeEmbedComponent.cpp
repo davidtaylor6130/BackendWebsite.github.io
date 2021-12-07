@@ -7,7 +7,14 @@
 //
 
 #include "YoutubeEmbedComponent.hpp"
+
+#ifdef __APPLE__
 #include "imgui.h"
+#endif
+
+#ifdef _WIN32
+#include "../Windowns Code/imgui.h"
+#endif
 
 YoutubeEmbedComponenet::YoutubeEmbedComponenet() : BaseComponent(ComponentType::YOUTUBE_COMPONENT)
 {

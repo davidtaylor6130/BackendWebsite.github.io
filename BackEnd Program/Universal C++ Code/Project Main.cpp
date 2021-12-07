@@ -7,7 +7,14 @@
 //
 
 #include "Project Main.hpp"
+
+#ifdef __APPLE__
 #include "imgui.h"
+#endif
+
+#ifdef _WIN32
+#include "../Windowns Code/imgui.h"
+#endif
 
 #include "TextComponent.hpp"
 #include "ImageComponent.hpp"

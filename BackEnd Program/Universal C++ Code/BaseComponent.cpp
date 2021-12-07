@@ -22,7 +22,7 @@ void BaseComponent::JsonSaving(nlohmann::json *json)
 void BaseComponent::JsonLoad(nlohmann::json *json)
 {
     Type = (*json)["ComponentType"];
-    WriteToCharArray(HTML_ID, std::string((*json)["ComponentHTMLID"]));
+    WriteToCharArray(HTML_ID, (*json)["ComponentHTMLID"]);
 }
 
 void BaseComponent::WriteToCharArray(char* array, std::string toCopy)

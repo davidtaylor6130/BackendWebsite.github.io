@@ -7,7 +7,14 @@
 //
 
 #include "TextComponent.hpp"
+
+#ifdef __APPLE__
 #include "imgui.h"
+#endif
+
+#ifdef _WIN32
+#include "../Windowns Code/imgui.h"
+#endif
 
 TextComponent::TextComponent() : BaseComponent(ComponentType::TEXT_COMPONENT)
 {
@@ -41,6 +48,6 @@ void TextComponent::JsonSaving(nlohmann::json* json)
 
 void TextComponent::JsonLoad(nlohmann::json* json)
 {
-    WriteToCharArray(TextForWebsite, std::string((*json)["TextForWebsite"]));
+    WriteToCharArray(TextForWebsite, (*json)["TextForWebsite"]);
     BaseComponent::JsonLoad(json);
 }

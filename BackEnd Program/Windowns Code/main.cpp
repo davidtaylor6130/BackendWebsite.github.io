@@ -8,8 +8,7 @@
 #include <d3d11.h>
 #include <tchar.h>
 
-
-#include "../../Universal C++ Code/Project Main.hpp"
+#include "../Universal C++ Code/Project Main.hpp"
 
 
 // Data

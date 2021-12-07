@@ -69,6 +69,9 @@
     <ClCompile Include="..\..\Universal C++ Code\YoutubeEmbedComponent.cpp">
       <Filter>Source Files\Universal Backend Code</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Universal C++ Code\LinkComponenet.cpp">
+      <Filter>Source Files\Universal Backend Code</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WindowsBackend.rc">
@@ -130,6 +133,9 @@
       <Filter>Source Files\Universal Backend Code</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Universal C++ Code\YoutubeEmbedComponent.hpp">
+      <Filter>Source Files\Universal Backend Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Universal C++ Code\LinkComponenet.hpp">
       <Filter>Source Files\Universal Backend Code</Filter>
     </ClInclude>
   </ItemGroup>

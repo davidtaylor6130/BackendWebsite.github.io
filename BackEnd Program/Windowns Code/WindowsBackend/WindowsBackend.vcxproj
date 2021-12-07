@@ -119,8 +119,9 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d11.lib;d3dcompiler.lib;dxgi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -142,6 +143,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\Universal C++ Code\BaseComponent.cpp" />
     <ClCompile Include="..\..\Universal C++ Code\ImageComponent.cpp" />
+    <ClCompile Include="..\..\Universal C++ Code\LinkComponenet.cpp" />
     <ClCompile Include="..\..\Universal C++ Code\PortfolioSettings.cpp" />
     <ClCompile Include="..\..\Universal C++ Code\Portolfio.cpp" />
     <ClCompile Include="..\..\Universal C++ Code\Project Data.cpp" />
@@ -167,6 +169,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\Universal C++ Code\BaseComponent.hpp" />
     <ClInclude Include="..\..\Universal C++ Code\ImageComponent.hpp" />
+    <ClInclude Include="..\..\Universal C++ Code\LinkComponenet.hpp" />
     <ClInclude Include="..\..\Universal C++ Code\PortfolioSettings.hpp" />
     <ClInclude Include="..\..\Universal C++ Code\Portolfio.hpp" />
     <ClInclude Include="..\..\Universal C++ Code\Project Data.hpp" />

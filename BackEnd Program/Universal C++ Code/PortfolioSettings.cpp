@@ -22,6 +22,6 @@ void PortfolioSettings::UpdateJsonSettings(nlohmann::json* json)
 
 void PortfolioSettings::LoadJsonSettings(nlohmann::json* json)
 {
-    jsonFileName = (*json)["JsonFileName"];
-    javascriptFileNmae = (*json)["JavaScriptFileName"];
+    jsonFileName = (*json)["JsonFileName"].dump();
+    javascriptFileNmae = (*json)["JavaScriptFileName"].dump();
 }

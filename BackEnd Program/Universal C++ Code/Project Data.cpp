@@ -11,7 +11,15 @@
 #include "ImageComponent.hpp"
 #include "LinkComponenet.hpp"
 #include "YoutubeEmbedComponent.hpp"
+
+#ifdef __APPLE__
 #include "imgui.h"
+#endif
+
+#ifdef _WIN32
+#include "../Windowns Code/imgui.h"
+#endif
+
 #include "Json For Modern C++/json.hpp"
 
 void ProjectData::GuiCall(int ID_Counter) {
@@ -60,7 +68,8 @@ void ProjectData::SaveToJson(nlohmann::json* json)
 
 void ProjectData::LoadFromJson(nlohmann::json* json)
 {
-    ProjectName = (*json)["ProjectName"];
+    //ProjectName = (*json)["ProjectName"];
+    ProjectName = (*json)["ProjectName"].dump();
     IsThisProjectActive = (*json)["IsProjectActive"];
     int ElementCount = (*json)["ElementCount"];
     for (int i = 0; i < ElementCount; i++)

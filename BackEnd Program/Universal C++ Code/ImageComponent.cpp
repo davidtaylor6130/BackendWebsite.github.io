@@ -50,6 +50,6 @@ void ImageComponent::JsonSaving(nlohmann::json* json)
 
 void ImageComponent::JsonLoad(nlohmann::json* json)
 {
-    WriteToCharArray(ImageDirectory, std::string((*json)["ImageDirectory"]));
+    WriteToCharArray(ImageDirectory, (*json)["ImageDirectory"]);
     BaseComponent::JsonLoad(json);
 }
