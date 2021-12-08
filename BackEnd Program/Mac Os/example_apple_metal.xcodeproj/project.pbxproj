@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		07A82ED82139413D0078D120 /* imgui_widgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A82ED72139413C0078D120 /* imgui_widgets.cpp */; };
 		07A82ED92139418F0078D120 /* imgui_widgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A82ED72139413C0078D120 /* imgui_widgets.cpp */; };
+		2243EC9127603992003BE41F /* LinkComponenet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2243EC8F27603992003BE41F /* LinkComponenet.cpp */; };
+		2243EC9227603992003BE41F /* LinkComponenet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2243EC8F27603992003BE41F /* LinkComponenet.cpp */; };
 		22F3955E2758FBAF0083EBD2 /* imgui_tables.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5079822D257677DB0038A28D /* imgui_tables.cpp */; };
 		22F39569275919B50083EBD2 /* Project Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22F39568275919B50083EBD2 /* Project Main.cpp */; };
 		22F3956A275919B50083EBD2 /* Project Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22F39568275919B50083EBD2 /* Project Main.cpp */; };
@@ -26,8 +28,6 @@
 		22F39584275A2A9A0083EBD2 /* TextComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22F39581275A2A9A0083EBD2 /* TextComponent.cpp */; };
 		22F39587275A2AB30083EBD2 /* YoutubeEmbedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22F39585275A2AB30083EBD2 /* YoutubeEmbedComponent.cpp */; };
 		22F39588275A2AB30083EBD2 /* YoutubeEmbedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22F39585275A2AB30083EBD2 /* YoutubeEmbedComponent.cpp */; };
-		22F3958B275A2ACC0083EBD2 /* LinkComponenet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22F39589275A2ACC0083EBD2 /* LinkComponenet.cpp */; };
-		22F3958C275A2ACC0083EBD2 /* LinkComponenet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22F39589275A2ACC0083EBD2 /* LinkComponenet.cpp */; };
 		22F39593275D28DF0083EBD2 /* Json For Modern C++ in Resources */ = {isa = PBXBuildFile; fileRef = 22F39592275D28DF0083EBD2 /* Json For Modern C++ */; };
 		22F39594275D28DF0083EBD2 /* Json For Modern C++ in Resources */ = {isa = PBXBuildFile; fileRef = 22F39592275D28DF0083EBD2 /* Json For Modern C++ */; };
 		5079822E257677DB0038A28D /* imgui_tables.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5079822D257677DB0038A28D /* imgui_tables.cpp */; };
@@ -54,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		07A82ED72139413C0078D120 /* imgui_widgets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_widgets.cpp; sourceTree = "<group>"; };
+		2243EC8F27603992003BE41F /* LinkComponenet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LinkComponenet.cpp; path = "../Universal C++ Code/LinkComponenet.cpp"; sourceTree = "<group>"; };
+		2243EC9027603992003BE41F /* LinkComponenet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LinkComponenet.hpp; path = "../Universal C++ Code/LinkComponenet.hpp"; sourceTree = "<group>"; };
 		22F3955F2758FD840083EBD2 /* imgui_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_internal.h; sourceTree = "<group>"; };
 		22F39567275919B50083EBD2 /* Project Main.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = "Project Main.hpp"; path = "../Universal C++ Code/Project Main.hpp"; sourceTree = "<group>"; };
 		22F39568275919B50083EBD2 /* Project Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Project Main.cpp"; path = "../Universal C++ Code/Project Main.cpp"; sourceTree = "<group>"; };
@@ -71,8 +73,6 @@
 		22F39582275A2A9A0083EBD2 /* TextComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = TextComponent.hpp; path = "../Universal C++ Code/TextComponent.hpp"; sourceTree = "<group>"; };
 		22F39585275A2AB30083EBD2 /* YoutubeEmbedComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = YoutubeEmbedComponent.cpp; path = "../Universal C++ Code/YoutubeEmbedComponent.cpp"; sourceTree = "<group>"; };
 		22F39586275A2AB30083EBD2 /* YoutubeEmbedComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = YoutubeEmbedComponent.hpp; path = "../Universal C++ Code/YoutubeEmbedComponent.hpp"; sourceTree = "<group>"; };
-		22F39589275A2ACC0083EBD2 /* LinkComponenet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LinkComponenet.cpp; sourceTree = "<group>"; };
-		22F3958A275A2ACC0083EBD2 /* LinkComponenet.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LinkComponenet.hpp; sourceTree = "<group>"; };
 		22F39592275D28DF0083EBD2 /* Json For Modern C++ */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Json For Modern C++"; path = "../Universal C++ Code/Json For Modern C++"; sourceTree = "<group>"; };
 		5079822D257677DB0038A28D /* imgui_tables.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_tables.cpp; sourceTree = "<group>"; };
 		8307E7C420E9F9C900473790 /* example_apple_metal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = example_apple_metal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,8 +173,8 @@
 		22F3958E275A2B370083EBD2 /* Link */ = {
 			isa = PBXGroup;
 			children = (
-				22F39589275A2ACC0083EBD2 /* LinkComponenet.cpp */,
-				22F3958A275A2ACC0083EBD2 /* LinkComponenet.hpp */,
+				2243EC8F27603992003BE41F /* LinkComponenet.cpp */,
+				2243EC9027603992003BE41F /* LinkComponenet.hpp */,
 			);
 			name = Link;
 			sourceTree = "<group>";
@@ -387,7 +387,7 @@
 				22F39583275A2A9A0083EBD2 /* TextComponent.cpp in Sources */,
 				83BBEA0720EB54E700295997 /* imgui_demo.cpp in Sources */,
 				83BBEA0520EB54E700295997 /* imgui_draw.cpp in Sources */,
-				22F3958B275A2ACC0083EBD2 /* LinkComponenet.cpp in Sources */,
+				2243EC9127603992003BE41F /* LinkComponenet.cpp in Sources */,
 				5079822E257677DB0038A28D /* imgui_tables.cpp in Sources */,
 				22F3957E275A2A7C0083EBD2 /* ImageComponent.cpp in Sources */,
 				22F39587275A2AB30083EBD2 /* YoutubeEmbedComponent.cpp in Sources */,
@@ -411,7 +411,7 @@
 				22F39588275A2AB30083EBD2 /* YoutubeEmbedComponent.cpp in Sources */,
 				22F3956A275919B50083EBD2 /* Project Main.cpp in Sources */,
 				83BBEA0620EB54E700295997 /* imgui_draw.cpp in Sources */,
-				22F3958C275A2ACC0083EBD2 /* LinkComponenet.cpp in Sources */,
+				2243EC9227603992003BE41F /* LinkComponenet.cpp in Sources */,
 				22F3955E2758FBAF0083EBD2 /* imgui_tables.cpp in Sources */,
 				22F3956E275A271A0083EBD2 /* PortfolioSettings.cpp in Sources */,
 				07A82ED92139418F0078D120 /* imgui_widgets.cpp in Sources */,
